@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "github-search-9314d": {
+      "hosting": {
+        "github-search": [
+          "github-search-9314d"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "github-search-9314d"
+  }
+}

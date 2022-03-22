@@ -156,6 +156,22 @@
             }
           },
           "defaultConfiguration": "production"
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "ssr": "cloud-functions",
+            "prerender": false,
+            "firebaseProject": "github-search-9314d",
+            "firebaseHostingSite": "github-search-9314d",
+            "functionName": "ssr_github-search",
+            "functionsNodeVersion": "14",
+            "region": "us-central1",
+            "browserTarget": "github-search:build:production",
+            "serverTarget": "github-search:server:production",
+            "prerenderTarget": "github-search:prerender:production",
+            "outputPath": "dist/github-search/functions"
+          }
         }
       }
     }

@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
+import {Component, Inject, PLATFORM_ID} from '@angular/core';
+import {isPlatformBrowser} from '@angular/common';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'github-search';
+  constructor(@Inject(PLATFORM_ID) private readonly platformId: Object) {
+  }
+
+  get text(): string {
+    return isPlatformBrowser(this.platformId) ? 'Browser' : 'Server'
+  }
 }
