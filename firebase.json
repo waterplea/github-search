@@ -1,40 +1,38 @@
 {
-  "hosting": [
-    {
-      "target": "github-search",
-      "public": "dist/github-search/browser",
-      "ignore": [
-        "**/.*"
-      ],
-      "headers": [
+    "hosting": [
         {
-          "source": "*.[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f].+(css|js)",
-          "headers": [
-            {
-              "key": "Cache-Control",
-              "value": "public,max-age=31536000,immutable"
-            }
-          ]
-        },
-        {
-          "source": "/@(ngsw-worker.js|ngsw.json)",
-          "headers": [
-            {
-              "key": "Cache-Control",
-              "value": "no-cache"
-            }
-          ]
+            "target": "github-search",
+            "public": "dist/github-search/browser",
+            "ignore": ["**/.*"],
+            "headers": [
+                {
+                    "source": "*.[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f].+(css|js)",
+                    "headers": [
+                        {
+                            "key": "Cache-Control",
+                            "value": "public,max-age=31536000,immutable"
+                        }
+                    ]
+                },
+                {
+                    "source": "/@(ngsw-worker.js|ngsw.json)",
+                    "headers": [
+                        {
+                            "key": "Cache-Control",
+                            "value": "no-cache"
+                        }
+                    ]
+                }
+            ],
+            "rewrites": [
+                {
+                    "source": "**",
+                    "function": "ssr_github-search"
+                }
+            ]
         }
-      ],
-      "rewrites": [
-        {
-          "source": "**",
-          "function": "ssr_github-search"
-        }
-      ]
+    ],
+    "functions": {
+        "source": "dist/github-search/functions"
     }
-  ],
-  "functions": {
-    "source": "dist/github-search/functions"
-  }
 }
