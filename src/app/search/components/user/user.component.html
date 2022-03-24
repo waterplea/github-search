@@ -1,0 +1,35 @@
+<ng-container *ngIf="user else skeleton">
+    <tui-avatar
+        size="l"
+        class="avatar"
+        [rounded]="true"
+        [autoColor]="true"
+        [avatarUrl]="user.avatar_url"
+        [text]="user.name || ''"
+    ></tui-avatar>
+    <div class="content">
+        <a
+            tuiLink
+            target="_blank"
+            rel="”noopener”"
+            [href]="user.html_url"
+            [innerHTML]="user.name || user.login | strong : query"
+        ></a>
+        <strong *ngIf="user.name" class="login">{{user.login}}</strong>
+        <tui-badge
+            status="neutral"
+            value="Followers: {{ user.followers }}"
+            class="followers"
+        >
+            <tui-svg src="tuiIconEyeOpen"></tui-svg>
+        </tui-badge>
+        <p class="bio" [innerHTML]="user.bio | strong : query"></p>
+    </div>
+</ng-container>
+<ng-template #skeleton>
+    <div class="avatar tui-skeleton"></div>
+    <div class="content">
+        <div class="name tui-skeleton"></div>
+        <p class="bio tui-skeleton"></p>
+    </div>
+</ng-template>

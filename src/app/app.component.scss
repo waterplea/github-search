@@ -1,0 +1,14 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.loader {
+    display: none;
+    height: 100%;
+
+    .outlet + & {
+        display: flex;
+    }
+}

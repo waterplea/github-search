@@ -1,14 +1,9 @@
-import {isPlatformBrowser} from '@angular/common';
-import {Component, Inject, PLATFORM_ID} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 
 @Component({
     selector: 'app-root',
-    templateUrl: './app.component.html',
+    templateUrl: 'app.component.html',
+    styleUrls: ['app.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent {
-    constructor(@Inject(PLATFORM_ID) private readonly platformId: Object) {}
-
-    get text(): string {
-        return isPlatformBrowser(this.platformId) ? 'Browser' : 'Server';
-    }
-}
+export class AppComponent {}

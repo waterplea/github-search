@@ -1,0 +1,47 @@
+<form
+    queryForm
+    class="form"
+    [formGroup]="form"
+    [tuiTextfieldCleaner]="true"
+    (submit)="onSubmit()"
+>
+    <tui-input formControlName="query" class="input">
+        Enter your query
+    </tui-input>
+    <button
+        tuiIconButton
+        icon="tuiIconSearchLarge"
+        shape="rounded"
+        appearance="flat"
+        type="submit"
+        title="Search"
+        [disabled]="form.invalid"
+    ></button>
+    <button
+        tuiIconButton
+        icon="tuiIconFilterLarge"
+        shape="rounded"
+        appearance="flat"
+        type="button"
+        title="Filter"
+        (click)="toggle()"
+    ></button>
+    <tui-expand class="expand" [expanded]="expanded">
+        <section class="filters">
+            <tui-input-date formControlName="date" class="input" [max]="today">
+                Joined before
+            </tui-input-date>
+            <tui-input-count
+                formControlName="followers"
+                class="input"
+                [tuiTextfieldCleaner]="false"
+            >
+                Minimum followers
+            </tui-input-count>
+        </section>
+        <label class="toggle">
+            <tui-toggle formControlName="sponsorable" size="l"></tui-toggle>
+            Sponsorable only
+        </label>
+    </tui-expand>
+</form>

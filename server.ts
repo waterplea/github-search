@@ -1,6 +1,8 @@
 import 'zone.js/dist/zone-node';
+import '@ng-web-apis/universal/mocks';
 
 import {APP_BASE_HREF} from '@angular/common';
+import {provideLocation, provideUserAgent} from '@ng-web-apis/universal';
 import {ngExpressEngine} from '@nguniversal/express-engine';
 import * as express from 'express';
 import {existsSync} from 'fs';
@@ -41,7 +43,11 @@ export function app(): express.Express {
     server.get('*', (req, res) => {
         res.render(indexHtml, {
             req,
-            providers: [{provide: APP_BASE_HREF, useValue: req.baseUrl}],
+            providers: [
+                {provide: APP_BASE_HREF, useValue: req.baseUrl},
+                provideLocation(req),
+                provideUserAgent(req),
+            ],
         });
     });
 

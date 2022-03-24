@@ -1,0 +1,14 @@
+<search [ngModel]="query" (ngModelChange)="onModelChange($event)"></search>
+<section *tuiLet="users$ | async as users" class="content">
+    <h2 *ngIf="users?.total_count">
+        Displaying {{first}} to {{first + 9}} of {{users?.total_count}}
+    </h2>
+    <users [users]="users | tuiMapper : login"></users>
+    <form queryForm [formGroup]="form">
+        <pagination
+            *ngIf="users?.total_count > 10"
+            formControlName="page"
+            [total]="users.total_count"
+        ></pagination>
+    </form>
+</section>

@@ -1,0 +1,19 @@
+<user
+    *ngFor="let user of users empty empty else loading"
+    [user]="user | tuiMapper : getUser | async"
+></user>
+
+<ng-template #empty>
+    <div class="empty">
+        <ng-container *ngIf="query$ | async else blank">
+            Your query did not return any results
+        </ng-container>
+        <ng-template #blank>
+            Please enter your query request to find users
+        </ng-template>
+    </div>
+</ng-template>
+
+<ng-template #loading>
+    <tui-loader size="l" class="loader"></tui-loader>
+</ng-template>

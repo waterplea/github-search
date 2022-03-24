@@ -1,0 +1,9 @@
+@import '~@taiga-ui/core/styles/taiga-ui-local';
+
+.content {
+    @include createStackingContext();
+
+    max-width: 600px;
+    padding: 20px;
+    margin: 0 auto;
+}

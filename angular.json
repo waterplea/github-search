@@ -30,7 +30,10 @@
                                 "output": "assets/taiga-ui/icons"
                             }
                         ],
-                        "styles": ["node_modules/@taiga-ui/core/styles/taiga-ui-theme.less"],
+                        "styles": [
+                            "node_modules/@taiga-ui/core/styles/taiga-ui-global.less",
+                            "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less"
+                        ],
                         "scripts": []
                     },
                     "configurations": {
@@ -159,7 +162,7 @@
                         "prerender": false,
                         "firebaseProject": "github-search-9314d",
                         "firebaseHostingSite": "github-search-9314d",
-                        "functionName": "ssr_github-search",
+                        "functionName": "ssr_github_search",
                         "functionsNodeVersion": "14",
                         "region": "us-central1",
                         "browserTarget": "github-search:build:production",

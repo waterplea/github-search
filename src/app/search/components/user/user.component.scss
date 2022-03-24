@@ -1,0 +1,51 @@
+:host {
+    display: flex;
+    align-items: flex-start;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px var(--tui-base-03);
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.content {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.login {
+    color: var(--tui-text-02);
+    margin-left: 8px;
+}
+
+.name {
+    display: inline-block;
+    min-width: 33%;
+    min-height: 1em;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.bio {
+    min-width: 50%;
+    min-height: 1em;
+    margin: 12px 0 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.followers {
+    float: right;
+
+    @media screen and (max-width: 500px) {
+        display: flex;
+        width: max-content;
+        float: none;
+        margin: 4px 0;
+    }
+}

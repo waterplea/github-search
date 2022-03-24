@@ -27,7 +27,7 @@
             "rewrites": [
                 {
                     "source": "**",
-                    "function": "ssr_github-search"
+                    "function": "ssr_github_search"
                 }
             ]
         }
