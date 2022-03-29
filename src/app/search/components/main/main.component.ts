@@ -18,7 +18,7 @@ export class MainComponent {
     readonly form = new FormGroup({
         query: new FormControl(),
         page: new FormControl(
-            Number(this.activatedRoute.snapshot.queryParams['page'] || 1) - 1,
+            Number(this.activatedRoute.snapshot.queryParams['page'] || 1),
         ),
     });
 
@@ -35,12 +35,12 @@ export class MainComponent {
     ) {}
 
     get first(): number {
-        return 1 + this.form.get('page')?.value * 10;
+        return 1 + (this.form.get('page')?.value - 1) * 10;
     }
 
     onModelChange(query: string) {
         this.query = query;
-        this.form.patchValue({query, page: 0});
+        this.form.patchValue({query, page: 1});
     }
 
     readonly login = (users: Users | null) =>
